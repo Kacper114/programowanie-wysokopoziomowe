@@ -1,29 +1,30 @@
-# Biblioteka - aplikacja konsolowa
+# Zadanie 2 - Biblioteka OOP
 
-Rozwiazanie zadania z zajec 1 z programowania wysokopoziomowego.
+Rozwiazanie zadania z zajec 2 z programowania wysokopoziomowego.
 
-Program obsluguje prosta biblioteke w konsoli:
+Program jest obiektowa wersja aplikacji biblioteki. Zawiera:
 
-- logowanie uzytkownika z limitem 3 prob,
-- wyswietlanie katalogu ksiazek,
-- wypozyczanie ksiazki po tytule,
-- wyswietlanie wypozyczen zalogowanego uzytkownika,
-- menu dzialajace w petli do momentu wylogowania.
-
-Kod jest napisany strukturalnie: uzywa funkcji, petli, instrukcji warunkowych, list i slownikow. Nie zawiera klas ani zewnetrznych bibliotek.
+- klase `Book`,
+- klase bazowa `User`,
+- klasy pochodne `Reader` i `Librarian`,
+- klase `Library` z logika biznesowa,
+- hermetyzacje przez pola chronione i properties,
+- metode `__str__`,
+- osobne menu dla czytelnika i bibliotekarza,
+- liste wszystkich wypozyczen dla bibliotekarza,
+- prosby czytelnikow o przedluzenie i ich obsluge przez bibliotekarza.
 
 ## Uruchomienie
 
 ```bash
-python biblioteka.py
+python biblioteka_oop.py
 ```
 
 ## Dane testowe
 
-Przykladowi uzytkownicy:
-
-| Login | Haslo |
-| --- | --- |
-| anna | haslo123 |
-| marek | qwerty |
-| kasia | biblioteka |
+| Login | Haslo | Rola |
+| --- | --- | --- |
+| anna | haslo123 | czytelnik |
+| marek | qwerty | czytelnik |
+| kasia | biblioteka | czytelnik |
+| admin | admin123 | bibliotekarz |
