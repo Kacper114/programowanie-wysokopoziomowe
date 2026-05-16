@@ -27,3 +27,5 @@ Przykladowi uzytkownicy:
 | anna | haslo123 |
 | marek | qwerty |
 | kasia | biblioteka |
+
+Autor: Kacper

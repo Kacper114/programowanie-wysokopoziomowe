@@ -131,3 +131,5 @@ def main():
 
 
 main()
+
+#Zadanie 1 
