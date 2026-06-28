@@ -13,13 +13,16 @@ users = [
 ]
 
 
+# Sprawdza, czy podany login i haslo pasuja do jednego z uzytkownikow.
 def find_user(login, password):
     for user in users:
         if user["login"] == login and user["password"] == password:
             return user
+
     return None
 
 
+# Obsluguje logowanie z limitem trzech prob.
 def login_user():
     attempts_left = 3
 
@@ -29,6 +32,7 @@ def login_user():
         password = input("Haslo: ").strip()
 
         user = find_user(login, password)
+
         if user is not None:
             print(f"\nZalogowano jako: {user['login']} ({user['role']})")
             return user
@@ -40,8 +44,10 @@ def login_user():
     return None
 
 
+# Wyswietla katalog ksiazek razem z liczba dostepnych sztuk.
 def show_catalog():
     print("\nKATALOG KSIAZEK")
+
     for index, book in enumerate(books, start=1):
         print(
             f"{index}. {book['title']} - {book['author']} "
@@ -50,14 +56,16 @@ def show_catalog():
 
 
 def find_book_by_title(title):
-    searched_title = title.lower()
+    searched_title = title.lower().strip()
 
     for book in books:
         if book["title"].lower() == searched_title:
             return book
+
     return None
 
 
+# Zmniejsza liczbe dostepnych sztuk i dopisuje tytul do wypozyczen uzytkownika.
 def borrow_book(user):
     print("\nWYPOZYCZENIE KSIAZKI")
     title = input("Podaj tytul ksiazki: ").strip()
@@ -118,16 +126,19 @@ def handle_menu_choice(choice, user):
 
 def main():
     print("SYSTEM BIBLIOTEKI")
+
     user = login_user()
 
     if user is None:
         return
 
     is_running = True
+
     while is_running:
         show_menu()
         choice = input("Wybierz opcje: ").strip()
         is_running = handle_menu_choice(choice, user)
 
 
-main()
+if __name__ == "__main__":
+    main()
